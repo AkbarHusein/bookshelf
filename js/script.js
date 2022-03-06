@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
   const formInput = document.getElementById("inputBook");
   /* tambahkan data buku jika submit terjadi */
-  formInput.addEventListener("submit", (ev) => {
+  formInput.addEventListener("submit", function (ev) {
     ev.preventDefault();
     addBook();
   });
 
   /* Cari Buku */
   const formSearch = document.getElementById("searchBook");
-  formSearch.addEventListener("submit", (ev) => {
+  formSearch.addEventListener("submit", function (ev) {
     ev.preventDefault();
     searchBook();
   });
@@ -26,3 +26,7 @@ document.addEventListener("ondataloaded", function () {
 document.addEventListener("ondatasaved", function () {
   alert("item saved!");
 });
+
+function confirmAction(message) {
+  return confirm(message);
+}
