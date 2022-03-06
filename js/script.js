@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
     addBook();
   });
 
+  /* Cari Buku */
+  const formSearch = document.getElementById("searchBook");
+  formSearch.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    searchBook();
+  });
+
   /* Cek apakah browser support web storage */
   if (isStorageExist()) {
     loadDataFromStorage();
