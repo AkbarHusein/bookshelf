@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const formInput = document.getElementById("inputBook");
   /* tambahkan data buku jika submit terjadi */
   formInput.addEventListener("submit", (ev) => {
@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.addEventListener("ondataloaded", () => {
+document.addEventListener("ondataloaded", function () {
   refreshDataFromBooks();
 });
 
-document.addEventListener("ondatasaved", () => {
+document.addEventListener("ondatasaved", function () {
   alert("item saved!");
 });
