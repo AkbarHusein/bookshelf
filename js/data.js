@@ -2,7 +2,6 @@ const STORAGE_KEY = "shelfBookApp";
 
 let books = [];
 
-/* Cek apakah browser support web storage */
 function isStorageExist() {
   if (typeof Storage === undefined) {
     alert("Maaf browser tidak support web storage!");
@@ -11,7 +10,6 @@ function isStorageExist() {
   return true;
 }
 
-/* Load data form storage */
 function loadDataFromStorage() {
   const serializedData = localStorage.getItem(STORAGE_KEY);
   let data = JSON.parse(serializedData);
@@ -21,7 +19,6 @@ function loadDataFromStorage() {
   document.dispatchEvent(new Event("ondataloaded"));
 }
 
-/* Template object book */
 function composeBookObject(title, author, year, isComplete) {
   return {
     id: +new Date(),
@@ -32,7 +29,6 @@ function composeBookObject(title, author, year, isComplete) {
   };
 }
 
-/* Update Data on Storage */
 function updateDataStorage() {
   if (isStorageExist()) saveData();
 }
