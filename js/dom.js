@@ -162,3 +162,30 @@ function deleteBook(bookElement) {
   bookElement.remove();
   updateDataStorage();
 }
+
+function searchBook() {
+  const searchBook = document.getElementById("searchBookTitle").value;
+  const inCompleteBookList = document.getElementById("incompleteBookshelfList");
+  const completeBookList = document.getElementById("completeBookshelfList");
+
+  inCompleteBookList.innerHTML = "";
+  completeBookList.innerHTML = "";
+
+  for (const book of books) {
+    if (book.title.toLowerCase().includes(searchBook.toLowerCase())) {
+      const newBook = makeBookData(
+        book.title,
+        book.author,
+        book.year,
+        book.isComplete
+      );
+      newBook[ITEMBOOK_ID] = book.id;
+
+      if (book.isComplete) {
+        completeBookList.append(newBook);
+      } else {
+        inCompleteBookList.append(newBook);
+      }
+    }
+  }
+}
