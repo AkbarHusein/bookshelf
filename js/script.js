@@ -1,21 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const formInput = document.getElementById("inputBook");
-  /* tambahkan data buku jika submit terjadi */
-  formInput.addEventListener("submit", (ev) => {
+
+  formInput.addEventListener("submit", function (ev) {
     ev.preventDefault();
     addBook();
   });
 
-  /* Cek apakah browser support web storage */
+  const formSearch = document.getElementById("searchBook");
+  formSearch.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    searchBook();
+  });
+
   if (isStorageExist()) {
     loadDataFromStorage();
   }
 });
 
-document.addEventListener("ondataloaded", () => {
+document.addEventListener("ondataloaded", function () {
   refreshDataFromBooks();
 });
 
-document.addEventListener("ondatasaved", () => {
+document.addEventListener("ondatasaved", function () {
   alert("item saved!");
 });
+
+function confirmAction(message) {
+  return confirm(message);
+}
